@@ -1,8 +1,6 @@
 project "Box2D"
 	kind "StaticLib"
 	language "C++"
-	cppdialect "C++11"
-	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -11,6 +9,7 @@ project "Box2D"
 	{
 		"src/**.h",
 		"src/**.cpp",
+
 		"include/**.h"
 	}
 
@@ -22,6 +21,8 @@ project "Box2D"
 
 	filter "system:windows"
 		systemversion "latest"
+		cppdialect "C++17"
+		staticruntime "off"
 
 	filter "configurations:Debug"
 		runtime "Debug"
